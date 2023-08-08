@@ -1,0 +1,53 @@
+import Dependencies.initAndroidTestImplementations
+import Dependencies.initCoilDependencies
+import Dependencies.initComposeDependencies
+import Dependencies.initHiltDependencies
+import Dependencies.initTestImplementations
+
+plugins {
+    id("com.android.library")
+    id("org.jetbrains.kotlin.android")
+    id("kotlin-kapt")
+}
+
+android {
+    namespace = "com.tracker.tracker_presentation"
+    compileSdk = ProjectConfig.compileSdk
+
+    defaultConfig {
+        minSdk = ProjectConfig.minSdk
+
+        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        //consumerProguardFiles = "consumer-rules.pro"
+    }
+
+    buildTypes {
+        getByName("release") {
+            isMinifyEnabled = false
+        }
+    }
+    @Suppress("UnstableApiUsage") buildFeatures {
+        compose = true
+    }
+    compileOptions {
+        sourceCompatibility = ProjectConfig.javaVersionCode
+        targetCompatibility = ProjectConfig.javaVersionCode
+    }
+    kotlinOptions {
+        jvmTarget = ProjectConfig.javaVersionNumber
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion = Compose.composeCompilerVersion
+    }
+}
+
+dependencies {
+    implementation(project(Modules.core))
+    implementation(project(Modules.trackerDomain))
+
+    initComposeDependencies()
+    initCoilDependencies()
+    initHiltDependencies()
+    initTestImplementations()
+    initAndroidTestImplementations()
+}
