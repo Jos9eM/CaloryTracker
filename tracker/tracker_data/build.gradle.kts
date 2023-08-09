@@ -1,6 +1,6 @@
-import Dependencies.initBaseAppDependencies
-import Dependencies.initRetrofitDependencies
-import Dependencies.initRoomDependencies
+import AndroidDependencies.initBaseAppDependencies
+import AndroidDependencies.initRetrofitDependencies
+import AndroidDependencies.initRoomDependencies
 
 plugins {
     id("com.android.library")

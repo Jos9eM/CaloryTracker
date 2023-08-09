@@ -1,4 +1,4 @@
-import Dependencies.initBaseAppDependencies
+import AndroidDependencies.initBaseAppDependencies
 
 plugins {
     id("com.android.library")

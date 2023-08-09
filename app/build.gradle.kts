@@ -1,12 +1,12 @@
-import Dependencies.initAndroidTestImplementations
-import Dependencies.initAndroidXDependencies
-import Dependencies.initCoilDependencies
-import Dependencies.initComposeDependencies
-import Dependencies.initGoogleDependencies
-import Dependencies.initHiltDependencies
-import Dependencies.initRetrofitDependencies
-import Dependencies.initRoomDependencies
-import Dependencies.initTestImplementations
+import AndroidDependencies.initAndroidTestImplementations
+import AndroidDependencies.initAndroidXDependencies
+import AndroidDependencies.initCoilDependencies
+import AndroidDependencies.initComposeDependencies
+import AndroidDependencies.initGoogleDependencies
+import AndroidDependencies.initHiltDependencies
+import AndroidDependencies.initRetrofitDependencies
+import AndroidDependencies.initRoomDependencies
+import AndroidDependencies.initTestImplementations
 
 plugins {
     id("com.android.application")

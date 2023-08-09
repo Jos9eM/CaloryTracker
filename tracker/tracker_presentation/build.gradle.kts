@@ -1,5 +1,5 @@
-import Dependencies.initCoilDependencies
-import Dependencies.initComposeBaseAppDependencies
+import AndroidDependencies.initCoilDependencies
+import AndroidDependencies.initComposeBaseAppDependencies
 
 plugins {
     id("com.android.library")
