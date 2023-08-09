@@ -1,8 +1,6 @@
-import Dependencies.initAndroidTestImplementations
-import Dependencies.initHiltDependencies
+import Dependencies.initBaseAppDependencies
 import Dependencies.initRetrofitDependencies
 import Dependencies.initRoomDependencies
-import Dependencies.initTestImplementations
 
 plugins {
     id("com.android.library")
@@ -40,9 +38,7 @@ dependencies {
     implementation(project(Modules.core))
     implementation(project(Modules.trackerDomain))
 
-    initHiltDependencies()
+    initBaseAppDependencies()
     initRetrofitDependencies()
     initRoomDependencies()
-    initTestImplementations()
-    initAndroidTestImplementations()
 }

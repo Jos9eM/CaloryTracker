@@ -1,7 +1,4 @@
-import Dependencies.initAndroidTestImplementations
-import Dependencies.initComposeDependencies
-import Dependencies.initHiltDependencies
-import Dependencies.initTestImplementations
+import Dependencies.initComposeBaseAppDependencies
 
 plugins {
     id("com.android.library")
@@ -42,10 +39,8 @@ android {
 
 dependencies {
     implementation(project(Modules.core))
+    implementation(project(Modules.core_ui))
     implementation(project(Modules.onboardingDomain))
 
-    initComposeDependencies()
-    initHiltDependencies()
-    initTestImplementations()
-    initAndroidTestImplementations()
+    initComposeBaseAppDependencies()
 }

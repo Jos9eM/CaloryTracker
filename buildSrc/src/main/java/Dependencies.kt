@@ -3,7 +3,7 @@ import org.gradle.api.artifacts.dsl.DependencyHandler
 
 object Dependencies {
 
-    fun DependencyHandler.initComposeDependencies(){
+    fun DependencyHandler.initComposeDependencies() {
         implementation(Compose.compiler)
         implementation(Compose.ui)
         implementation(Compose.uiToolingPreview)
@@ -15,38 +15,38 @@ object Dependencies {
         implementation(Compose.activityCompose)
     }
 
-    fun DependencyHandler.initAndroidXDependencies(){
+    fun DependencyHandler.initAndroidXDependencies() {
         implementation(AndroidX.coreKtx)
         implementation(AndroidX.appCompat)
     }
 
-    fun DependencyHandler.initHiltDependencies(){
+    fun DependencyHandler.initHiltDependencies() {
         kapt(DaggerHilt.hiltCompiler)
         implementation(DaggerHilt.hiltAndroid)
     }
 
-    fun DependencyHandler.initRoomDependencies(){
+    fun DependencyHandler.initRoomDependencies() {
         kapt(Room.roomCompiler)
         implementation(Room.roomKtx)
         implementation(Room.roomRuntime)
     }
 
-    fun DependencyHandler.initRetrofitDependencies(){
+    fun DependencyHandler.initRetrofitDependencies() {
         implementation(Retrofit.okHttp)
         implementation(Retrofit.retrofit)
         implementation(Retrofit.okHttpLoggingInterceptor)
         implementation(Retrofit.moshiConverter)
     }
 
-    fun DependencyHandler.initCoilDependencies(){
+    fun DependencyHandler.initCoilDependencies() {
         implementation(Coil.coilCompose)
     }
 
-    fun DependencyHandler.initGoogleDependencies(){
+    fun DependencyHandler.initGoogleDependencies() {
         implementation(Google.material)
     }
 
-    fun DependencyHandler.initTestImplementations(){
+    fun DependencyHandler.initTestImplementations() {
         testImplementation(Testing.junit4)
         testImplementation(Testing.junitAndroidExt)
         testImplementation(Testing.truth)
@@ -57,7 +57,7 @@ object Dependencies {
         testImplementation(Testing.mockWebServer)
     }
 
-    fun DependencyHandler.initAndroidTestImplementations(){
+    fun DependencyHandler.initAndroidTestImplementations() {
         androidTestImplementation(Testing.junit4)
         androidTestImplementation(Testing.junitAndroidExt)
         androidTestImplementation(Testing.truth)
@@ -69,6 +69,17 @@ object Dependencies {
         androidTestImplementation(Testing.hiltTesting)
         kaptAndroidTest(DaggerHilt.hiltCompiler)
         androidTestImplementation(Testing.testRunner)
+    }
+
+    fun DependencyHandler.initBaseAppDependencies() {
+        initHiltDependencies()
+        initTestImplementations()
+        initAndroidTestImplementations()
+    }
+
+    fun DependencyHandler.initComposeBaseAppDependencies() {
+        initComposeDependencies()
+        initBaseAppDependencies()
     }
 
     fun DependencyHandler.`implementation`(dependencyNotation: Any): Dependency? =

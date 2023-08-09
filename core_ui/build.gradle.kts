@@ -1,4 +1,3 @@
-import Dependencies.initCoilDependencies
 import Dependencies.initComposeBaseAppDependencies
 
 plugins {
@@ -8,7 +7,7 @@ plugins {
 }
 
 android {
-    namespace = "com.tracker.tracker_presentation"
+    namespace = "com.calorieTracker.core_ui"
     compileSdk = ProjectConfig.compileSdk
 
     defaultConfig {
@@ -39,9 +38,5 @@ android {
 }
 
 dependencies {
-    implementation(project(Modules.core))
-    implementation(project(Modules.trackerDomain))
-
     initComposeBaseAppDependencies()
-    initCoilDependencies()
 }
