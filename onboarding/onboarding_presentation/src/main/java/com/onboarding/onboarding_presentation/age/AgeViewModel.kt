@@ -1,0 +1,51 @@
+package com.onboarding.onboarding_presentation.age
+
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.setValue
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import com.calorieTracker.core.domain.preferences.Preferences
+import com.calorieTracker.core.domain.use_case.FilterOutDigits
+import com.calorieTracker.core.navigation.Route
+import com.calorieTracker.core.util.UiEvent
+import com.calorieTracker.core.util.UiText
+import com.onboarding.onboarding_presentation.R
+import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.channels.Channel
+import kotlinx.coroutines.flow.receiveAsFlow
+import kotlinx.coroutines.launch
+import javax.inject.Inject
+
+@HiltViewModel
+class AgeViewModel @Inject constructor(
+    private val preferences: Preferences, private val filterOutDigits: FilterOutDigits
+) : ViewModel() {
+
+    var selectedAge by mutableStateOf("20")
+        private set
+
+    private val _uiEvent = Channel<UiEvent>()
+    val uiEvent = _uiEvent.receiveAsFlow()
+
+    fun onAgeEnter(age: String) {
+        if (age.length <= 3) {
+            this.selectedAge = filterOutDigits(age)
+        }
+    }
+
+    fun onNextCLick() {
+        viewModelScope.launch {
+            val ageNum = selectedAge.toIntOrNull() ?: kotlin.run {
+                _uiEvent.send(
+                    UiEvent.ShowSnackBar(
+                        UiText.StringResource(R.string.error_age_cant_be_empty)
+                    )
+                )
+                return@launch
+            }
+            preferences.saveAge(ageNum)
+            _uiEvent.send(UiEvent.Navigate(Route.Height_Route))
+        }
+    }
+}
