@@ -1,4 +1,4 @@
-package values
+package com.calorieTracker.core_ui
 
 import androidx.compose.runtime.compositionLocalOf
 import androidx.compose.ui.unit.Dp
@@ -13,4 +13,4 @@ data class Dimensions(
     val spaceExtraLarge: Dp = 64.dp,
 )
 
-val localSpacing = compositionLocalOf { Dimensions() }
+val LocalSpacing = compositionLocalOf { Dimensions() }

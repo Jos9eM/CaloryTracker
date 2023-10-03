@@ -15,7 +15,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
-import values.localSpacing
+import com.calorieTracker.core_ui.LocalSpacing
 
 @Composable
 fun SelectableButton(
@@ -37,7 +37,7 @@ fun SelectableButton(
             .clickable {
                 onClick()
             }
-            .padding(localSpacing.current.spaceMedium)) {
+            .padding(LocalSpacing.current.spaceMedium)) {
         Text(
             text = text, style = textStyle, color = if (isSelected) selectedTextColor else color
         )

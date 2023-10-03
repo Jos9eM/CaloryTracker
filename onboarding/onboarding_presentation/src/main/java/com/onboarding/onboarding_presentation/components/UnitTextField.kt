@@ -15,7 +15,7 @@ import androidx.compose.ui.layout.LastBaseline
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.sp
-import values.localSpacing
+import com.calorieTracker.core_ui.LocalSpacing
 
 @Composable
 fun UnitTextField(
@@ -27,7 +27,7 @@ fun UnitTextField(
         color = MaterialTheme.colors.primaryVariant, fontSize = 70.sp
     )
 ) {
-    val spacing = localSpacing.current
+    val spacing = LocalSpacing.current
     Row(
         modifier = modifier, horizontalArrangement = Arrangement.Center,
     ) {

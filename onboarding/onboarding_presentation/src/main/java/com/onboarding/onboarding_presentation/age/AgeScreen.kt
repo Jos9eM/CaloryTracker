@@ -21,7 +21,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import com.calorieTracker.core.util.UiEvent
 import com.onboarding.onboarding_presentation.R
 import com.onboarding.onboarding_presentation.components.UnitTextField
-import values.localSpacing
+import com.calorieTracker.core_ui.LocalSpacing
 
 @Composable
 fun AgeScreen(
@@ -30,7 +30,7 @@ fun AgeScreen(
     viewModel: AgeViewModel = hiltViewModel()
 ) {
     val context = LocalContext.current
-    val spacing = localSpacing.current
+    val spacing = LocalSpacing.current
     LaunchedEffect(key1 = true) {
         viewModel.uiEvent.collect { event ->
             when (event) {

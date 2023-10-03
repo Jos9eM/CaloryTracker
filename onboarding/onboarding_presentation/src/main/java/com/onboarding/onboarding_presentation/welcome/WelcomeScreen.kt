@@ -17,13 +17,13 @@ import androidx.compose.ui.text.style.TextAlign
 import com.calorieTracker.core.navigation.Route
 import com.calorieTracker.core.util.UiEvent
 import com.onboarding.onboarding_presentation.R
-import values.localSpacing
+import com.calorieTracker.core_ui.LocalSpacing
 
 @Composable
 fun WelcomeScreen(
     onNavigate: (UiEvent.Navigate) -> Unit
 ) {
-    val spacing = localSpacing.current
+    val spacing = LocalSpacing.current
     Column(
         modifier = Modifier
             .fillMaxHeight()

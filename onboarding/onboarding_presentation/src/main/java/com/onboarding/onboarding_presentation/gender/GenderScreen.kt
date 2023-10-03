@@ -24,13 +24,13 @@ import com.calorieTracker.core.domain.models.Gender
 import com.calorieTracker.core.util.UiEvent
 import com.onboarding.onboarding_presentation.R
 import com.onboarding.onboarding_presentation.components.SelectableButton
-import values.localSpacing
+import com.calorieTracker.core_ui.LocalSpacing
 
 @Composable
 fun GenderScreen(
     onNavigate: (UiEvent.Navigate) -> Unit, viewModel: GenderViewModel = hiltViewModel()
 ) {
-    val spacing = localSpacing.current
+    val spacing = LocalSpacing.current
     LaunchedEffect(key1 = true) {
         viewModel.uiEvent.collect { event ->
             when (event) {

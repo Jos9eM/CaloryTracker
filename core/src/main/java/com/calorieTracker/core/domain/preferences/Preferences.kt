@@ -18,7 +18,10 @@ interface Preferences {
 
     fun loadUserInfo(): UserInfo
 
-    companion object{
+    fun saveShouldShowOnboarding(shouldShow: Boolean)
 
+    fun loadShouldShowOnboarding(): Boolean
+
+    companion object{
     }
 }

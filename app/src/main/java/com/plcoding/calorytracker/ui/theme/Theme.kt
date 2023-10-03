@@ -7,9 +7,16 @@ import androidx.compose.material.lightColors
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.graphics.Color
+import com.calorieTracker.core_ui.BrightGreen
+import com.calorieTracker.core_ui.DarkGray
+import com.calorieTracker.core_ui.DarkGreen
 import com.plcoding.calorytrackerprep.ui.theme.Typography
-import values.Dimensions
-import values.localSpacing
+import com.calorieTracker.core_ui.Dimensions
+import com.calorieTracker.core_ui.LightGray
+import com.calorieTracker.core_ui.LocalSpacing
+import com.calorieTracker.core_ui.MediumGray
+import com.calorieTracker.core_ui.Orange
+import com.calorieTracker.core_ui.TextWhite
 
 private val DarkColorPalette = darkColors(
     primary = BrightGreen,
@@ -42,7 +49,7 @@ fun CaloryTrackerTheme(darkTheme: Boolean = isSystemInDarkTheme(), content: @Com
     } else {
         LightColorPalette
     }
-    CompositionLocalProvider(localSpacing provides Dimensions()) {
+    CompositionLocalProvider(LocalSpacing provides Dimensions()) {
         MaterialTheme(
             colors = colors,
             typography = Typography,

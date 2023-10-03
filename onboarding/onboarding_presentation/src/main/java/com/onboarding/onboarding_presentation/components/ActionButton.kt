@@ -7,7 +7,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
-import values.localSpacing
+import com.calorieTracker.core_ui.LocalSpacing
 
 @Composable
 fun ActionButton(
@@ -28,7 +28,7 @@ fun ActionButton(
             style = textStyle,
             color = MaterialTheme.colors.onPrimary,
             modifier = Modifier.padding(
-                localSpacing.current.spaceSmall
+                LocalSpacing.current.spaceSmall
             )
         )
     }

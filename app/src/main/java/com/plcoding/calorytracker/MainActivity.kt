@@ -12,6 +12,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.calorieTracker.core.navigation.Route
+import com.example.tracker_presentation.tracker_overview.TrackerOverviewScreen
 import com.onboarding.onboarding_presentation.activity_level.ActivityLevelScreen
 import com.onboarding.onboarding_presentation.age.AgeScreen
 import com.onboarding.onboarding_presentation.fat_goal.FatGoalScreen
@@ -72,7 +73,7 @@ class MainActivity : ComponentActivity() {
                             FatGoalScreen(onNavigate = navController::navigate)
                         }
                         composable(Route.Tracker_Overview_Route) {
-
+                            TrackerOverviewScreen(onNavigate = navController::navigate)
                         }
                         composable(Route.Search_Route) {
 

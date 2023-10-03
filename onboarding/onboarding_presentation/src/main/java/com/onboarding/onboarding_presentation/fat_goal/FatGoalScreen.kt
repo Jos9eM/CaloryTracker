@@ -11,7 +11,6 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.material.MaterialTheme
-import androidx.compose.material.ScaffoldState
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -25,14 +24,14 @@ import com.calorieTracker.core.domain.models.GoalType
 import com.calorieTracker.core.util.UiEvent
 import com.onboarding.onboarding_presentation.R
 import com.onboarding.onboarding_presentation.components.SelectableButton
-import values.localSpacing
+import com.calorieTracker.core_ui.LocalSpacing
 
 @Composable
 fun FatGoalScreen(
     onNavigate: (UiEvent.Navigate) -> Unit,
     viewModel: FatGoalViewModel = hiltViewModel()
 ) {
-    val spacing = localSpacing.current
+    val spacing = LocalSpacing.current
     LaunchedEffect(key1 = true) {
         viewModel.uiEvent.collect { event ->
             when (event) {
