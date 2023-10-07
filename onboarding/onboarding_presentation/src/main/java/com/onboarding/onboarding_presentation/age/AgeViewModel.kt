@@ -7,7 +7,6 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.calorieTracker.core.domain.preferences.Preferences
 import com.calorieTracker.core.domain.use_case.FilterOutDigits
-import com.calorieTracker.core.navigation.Route
 import com.calorieTracker.core.util.UiEvent
 import com.calorieTracker.core.util.UiText
 import com.onboarding.onboarding_presentation.R
@@ -45,7 +44,7 @@ class AgeViewModel @Inject constructor(
                 return@launch
             }
             preferences.saveAge(ageNum)
-            _uiEvent.send(UiEvent.Navigate(Route.Height_Route))
+            _uiEvent.send(UiEvent.Success)
         }
     }
 }

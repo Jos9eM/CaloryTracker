@@ -6,7 +6,6 @@ import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.calorieTracker.core.domain.preferences.Preferences
-import com.calorieTracker.core.navigation.Route
 import com.calorieTracker.core.util.UiEvent
 import com.tracker.tracker_domain.use_cases.TrackerUseCases
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -32,25 +31,12 @@ class TrackerOverviewViewModel @Inject constructor(
     private var getFoodsForDateJob: Job? = null
 
     init {
+        refreshFood()
         preferences.saveShouldShowOnboarding(false)
     }
 
     fun onEvent(event: TrackerOverviewEvent) {
         when (event) {
-            is TrackerOverviewEvent.OnAddFoodClick -> {
-                viewModelScope.launch {
-                    _uiEvent.send(
-                        UiEvent.Navigate(
-                            route = Route.Search_Route +
-                                    "/${event.meal.mealType.name}" +
-                                    "/${state.date.dayOfMonth}" +
-                                    "/${state.date.monthValue}" +
-                                    "/${state.date.year}"
-                        )
-                    )
-                }
-            }
-
             is TrackerOverviewEvent.OnDeleteTrackedFoodClick -> {
                 viewModelScope.launch {
                     trackerUseCases.deleteTrackedFood(event.trackedFood)
@@ -75,7 +61,7 @@ class TrackerOverviewViewModel @Inject constructor(
             is TrackerOverviewEvent.OnToggleMealClick -> {
                 state = state.copy(
                     meals = state.meals.map {
-                        if(it.name == event.meal.name){
+                        if (it.name == event.meal.name) {
                             it.copy(isExpanded = !it.isExpanded)
                         } else it
                     }

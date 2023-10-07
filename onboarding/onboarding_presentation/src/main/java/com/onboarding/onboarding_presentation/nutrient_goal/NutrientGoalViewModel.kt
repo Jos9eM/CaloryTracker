@@ -7,7 +7,6 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.calorieTracker.core.domain.preferences.Preferences
 import com.calorieTracker.core.domain.use_case.FilterOutDigits
-import com.calorieTracker.core.navigation.Route
 import com.calorieTracker.core.util.UiEvent
 import com.onboarding.onboarding_domain.use_case.ValidateNutrients
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -63,7 +62,7 @@ class NutrientGoalViewModel @Inject constructor(
                         preferences.saveFatRatio(result.fatRatio)
 
                         viewModelScope.launch {
-                            _uiEvent.send(UiEvent.Navigate(Route.Tracker_Overview_Route))
+                            _uiEvent.send(UiEvent.Success)
                         }
                     }
 

@@ -22,19 +22,19 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.calorieTracker.core.domain.models.Gender
 import com.calorieTracker.core.util.UiEvent
+import com.calorieTracker.core_ui.LocalSpacing
 import com.onboarding.onboarding_presentation.R
 import com.onboarding.onboarding_presentation.components.SelectableButton
-import com.calorieTracker.core_ui.LocalSpacing
 
 @Composable
 fun GenderScreen(
-    onNavigate: (UiEvent.Navigate) -> Unit, viewModel: GenderViewModel = hiltViewModel()
+    onNextClick: () -> Unit, viewModel: GenderViewModel = hiltViewModel()
 ) {
     val spacing = LocalSpacing.current
     LaunchedEffect(key1 = true) {
         viewModel.uiEvent.collect { event ->
             when (event) {
-                is UiEvent.Navigate -> onNavigate(event)
+                is UiEvent.Success -> onNextClick()
                 else -> Unit
             }
         }
