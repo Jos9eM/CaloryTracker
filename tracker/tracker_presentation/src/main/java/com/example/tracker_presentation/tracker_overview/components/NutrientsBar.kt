@@ -34,12 +34,9 @@ fun NutrientsBar(
     val fatWidthRatio = remember {
         Animatable(0f)
     }
-    val caloriesWidthRatio = remember {
-        Animatable(0f)
-    }
 
     LaunchedEffect(key1 = carbs) {
-        caloriesWidthRatio.animateTo(
+        carbsWidthRatio.animateTo(
             targetValue = ((carbs * 4f) / caloriesGoal)
         )
     }
